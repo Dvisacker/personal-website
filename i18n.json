@@ -1,0 +1,19 @@
+{
+  "allLanguages": ["en", "kr"],
+  "defaultLanguage": "en",
+  "defaultLangRedirect": "root",
+  "currentPagesDir": "pages_",
+  "finalPagesDir": "pages",
+  "localesPath": "locales",
+  "pages": {
+    "/": ["common"],
+    "/blog": ["common"],
+    "/portfolio": ["common"],
+    "/resume": ["common"],
+    "*": ["common"]
+  },
+  "allLanguageNames": {
+    "en": "English",
+    "kr": "한국어"
+  }
+}

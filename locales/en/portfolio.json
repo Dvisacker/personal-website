@@ -1,0 +1,15 @@
+{
+  "portfolio-title": "PORTFOLIO",
+  "portfolio-subtitle": "A list of my open-source projects",
+  "amp": "AMP, a decentralized exchange built on Ethereum",
+  "amp-frontend": "Frontend (React.js)",
+  "amp-matching-engine": "Matching Engine (Golang)",
+  "amp-contracts": "Ethereum Settlement Layer (Solidity)",
+  "amp-tools": "Deployment and maintenance tools",
+  "bottlemint": "Bottlemint, a modified version of redux that synchronizes your frontend with a Tendermint chain",
+  "bottlemint-github": "View on github",
+  "bottlemint-counter-app": "Counter App",
+  "bottlemint-interop-app": "Ethereum/Tendermint Interop App",
+  "togen-cli": "Togen-CLI, a commandline tool to configure, generate, compile and deploy groups of smart-contracts",
+  "togen-cli-github": "View on github"
+}

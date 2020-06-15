@@ -1,36 +1,31 @@
-import Head from 'next/head'
-import Layout from '../../components/layout'
-import Date from '../../components/date'
-import utilStyles from '../../styles/utils.module.css'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+// @ts-nocheck
+import I18nProvider from 'next-translate/I18nProvider'
+import React from 'react'
+import C, * as _rest from '../../pages_/posts/[id]'
+import ns0 from '../../locales/en/common.json'
 
-export async function getStaticPaths() {
-  const paths = getAllPostIds()
-  return {
-    paths,
-    fallback: false
-  }
+const namespaces = { 'common': ns0 }
+
+export default function Page(p){
+  return (
+    <I18nProvider 
+      lang="en" 
+      namespaces={namespaces}  
+      internals={{"defaultLangRedirect":"root","defaultLanguage":"en","isStaticMode":true}}
+    >
+      <C {...p} />
+    </I18nProvider>
+  )
 }
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.id)
-  return {
-    props: {
-      postData
-    }
-  }
+Page = Object.assign(Page, { ...C })
+
+if(C && C.getInitialProps) {
+  Page.getInitialProps = ctx => C.getInitialProps({ ...ctx, lang: 'en'})
 }
 
-export default function Post({ postData }) {
-  return (<Layout>
-    <Head>
-      <title>{postData.title}</title>
-    </Head>
-    <article />
-    <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-    <div className={utilStyles.lightText}>
-      <Date dateString={postData.date} />
-    </div>
-    <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-  </Layout>)
-}
+export const getStaticProps = ctx => _rest.getStaticProps({ ...ctx, lang: 'en' })
+export const getStaticPaths = ctx => _rest.getStaticPaths({ ...ctx, lang: 'en' })
+
+
+export * from '../../pages_/posts/[id]'

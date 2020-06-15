@@ -1,0 +1,15 @@
+{
+  "portfolio-title": "포트폴리오",
+  "portfolio-subtitle": "오픈소스 프로젝트 목록",
+  "amp": "AMP, Ethereum을 기반으로 구축된 분산형 거래소",
+  "amp-frontend": "프론트 엔드 (React.js)",
+  "amp-matching-engine": "매칭 엔진 (Golang)",
+  "amp-contracts": "스마트 계약 (Solidity)",
+  "amp-tools": "배포 및 유지 관리 도구",
+  "bottlemint": "Bottlemint는 당신의 프런트 엔드를 Tendermint 체인과 동기화하는 Redux의 변형된 버전",
+  "bottlemint-github": "Github",
+  "bottlemint-counter-app": "카운터 앱",
+  "bottlemint-interop-app": "Ethereum/Tendermint 상호운용성 앱",
+  "togen-cli": "Togen-CLI, 스마트 계약 그룹을 구성, 생성, 컴파일 및 배포하는 명령줄 도구",
+  "togen-cli-github": "Github"
+}

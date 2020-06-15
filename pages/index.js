@@ -1,51 +1,32 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
-import Date from '../components/date'
+// @ts-nocheck
+import I18nProvider from 'next-translate/I18nProvider'
+import React from 'react'
+import C from '../pages_'
+import ns0 from '../locales/en/common.json'
+import ns1 from '../locales/en/common.json'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
-}
+const namespaces = { 'common': ns0, 'common': ns1 }
 
-export default function Home({ allPostsData }) {
+export default function Page(p){
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>Hello, I'm David. I am an independant software engineer and entrepreneur based in Seoul. You can
-          contact via at davidvanisacker@gmail.com
-        </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={utilStyles.headingMd}>…</section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-            <Link href="/posts/[id]" as={`/posts/${id}`}>
-              <a>{title}</a>
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString={date} />
-            </small>
-          </li>
-          ))}
-        </ul>
-      </section>
-    </Layout>
+    <I18nProvider 
+      lang="en" 
+      namespaces={namespaces}  
+      internals={{"defaultLangRedirect":"root","defaultLanguage":"en","isStaticMode":true}}
+    >
+      <C {...p} />
+    </I18nProvider>
   )
 }
+
+Page = Object.assign(Page, { ...C })
+
+if(C && C.getInitialProps) {
+  Page.getInitialProps = ctx => C.getInitialProps({ ...ctx, lang: 'en'})
+}
+
+
+
+
+
+export * from '../pages_'
